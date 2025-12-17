@@ -3,8 +3,9 @@
 
 @theme inline {
   /* Font Family Integration */
-  --font-display: var(--font-aclonica);
-  --font-sans: var(--font-quicksand);
+  --font-brand: var(--font-aclonica);
+  --font-body: var(--font-quicksand);
+  --font-display: var(--font-inter);
 
   /* Core Colors (Derived from LÖCA HOUSE palette) */
   --color-background: var(--background);
@@ -46,8 +47,8 @@
   --radius: 0.75rem;
   
   /* LÖCA HOUSE Light Theme */
-  --background: oklch(0.98 0.01 251); /* Soft White-Blue */
-  --foreground: oklch(0.25 0.12 260); /* Deep Purple-Navy text */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.1 0.05 265); /* Deep Purple-Navy text */
   
   --primary: oklch(0.35 0.15 265);    /* Brand Purple Base */
   --primary-foreground: oklch(0.98 0.01 251);
@@ -82,8 +83,8 @@
 
 .dark {
   /* LÖCA HOUSE Dark Theme (Inspired by the background in your image) */
-  --background: oklch(0.18 0.1 265);  /* Deep Vivid Purple */
-  --foreground: oklch(0.95 0.02 265);
+  --background: oklch(0.1 0.05 265);  /* Deep Vivid Purple */
+  --foreground: oklch(0.9 0.03 260);
   
   --primary: oklch(0.85 0.18 85);     /* Yellow becomes primary for high visibility */
   --primary-foreground: oklch(0.2 0.05 85);
@@ -116,15 +117,33 @@
     @apply border-border outline-ring/50 scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
+    @apply bg-background text-foreground font-body text-lg antialiased transition-colors duration-300;
   }
-  h1, h2, h3, h4, .font-brand {
-    @apply font-display text-primary tracking-tight;
+  h1 {
+    @apply text-5xl font-medium font-brand;
   }
-  
+  h2 {
+    @apply text-4xl font-medium font-display;
+  }
+  h3 {
+    @apply text-3xl font-medium font-display;
+  }
+  h4 {
+    @apply text-2xl font-medium font-display;
+  }
+  h5 {
+    @apply text-xl font-medium font-display;
+  }
+  h6 {
+    @apply text-lg font-bold font-display;
+  }
+
+  small {
+    @apply text-sm;
+  }
   /* Standardizing Button & Interactive states */
   a {
-    @apply transition-all duration-200;
+    @apply transition-all duration-200 text-foreground hover:text-primary;
   }
 }
 

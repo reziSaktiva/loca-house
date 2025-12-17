@@ -3,7 +3,7 @@ import { Aclonica, Quicksand, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/navbar/navbar";
 
 const aclonica = Aclonica({
   weight: '400',
@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn("antialiased", aclonica.variable, quicksand.variable, inter.variable)}
       >
@@ -45,7 +45,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <div className="py-6 overflow-hidden">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

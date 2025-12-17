@@ -2,44 +2,19 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useTheme } from "next-themes";
-import { Search, ShoppingBag, Menu, Sun, Moon } from "lucide-react";
+import { Search, ShoppingBag, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./theme-toggle";
 
 const Logo = () => (
-    <Link href="/">
-        <Image src="/logo-no-bg.svg" alt="Logo" width={132} height={48} />
+    <Link href="/" className="bg-neutral-100 border-4 border-border rounded-xl p-1">
+        <Image className="h-16 w-auto" src="/logo.svg" alt="Logo" width={202} height={72} />
     </Link>
-);
-
-const ThemeToggle = () => {
-    const { setTheme, theme } = useTheme();
-
-    return (
-        <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            aria-label="Toggle theme"
-        >
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Toggle theme</span>
-        </Button>
-    );
-};
-
-const UserDropdown = () => (
-    <button className="flex items-center gap-2" aria-label="User menu">
-        <div className="size-8 rounded-full bg-secondary border border-border overflow-hidden">
-            {/* Placeholder avatar */}
-        </div>
-    </button>
 );
 
 export function Navbar() {
     return (
-        <nav className="w-full sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <nav className="w-full sticky top-0 z-50 bg-background/10 backdrop-blur-md border-b border-border">
             <NavDesktop />
             <NavMobile />
         </nav>
@@ -49,26 +24,23 @@ export function Navbar() {
 const NavDesktop = () => {
     return (
         <div className="hidden lg:block">
-            <div className="wrapper py-4">
+            <div className="px-6 py-4">
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-8">
+                    {/* Desktop Navigation Links - simplified from NavigationMenu */}
+                    <div className="flex items-center gap-6">
                         <Logo />
-
-                        {/* Desktop Navigation Links - simplified from NavigationMenu */}
-                        <div className="flex items-center gap-6">
-                            <Link href="/shop" className="text-sm font-medium hover:text-primary transition-colors">
-                                Shop
-                            </Link>
-                            <Link href="/collections" className="text-sm font-medium hover:text-primary transition-colors">
-                                Collections
-                            </Link>
-                            <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
-                                Blog
-                            </Link>
-                            <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">
-                                About
-                            </Link>
-                        </div>
+                        <Link href="/shop">
+                            Shop
+                        </Link>
+                        <Link href="/collections">
+                            Collections
+                        </Link>
+                        <Link href="/blog">
+                            Blog
+                        </Link>
+                        <Link href="/about">
+                            About
+                        </Link>
                     </div>
 
                     <div className="flex items-center gap-4">
@@ -91,7 +63,6 @@ const NavDesktop = () => {
                                     <ShoppingBag className="h-5 w-5" />
                                 </Button>
                             </Link>
-                            <UserDropdown />
                         </div>
                     </div>
                 </div>
