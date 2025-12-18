@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
 
 const Logo = () => (
-    <Link href="/" className="bg-accent border-4 border-border rounded-xl p-1">
+    <Link href="/" className="bg-primary border border-border p-1 rounded-xl">
         <Image className="h-16 w-auto" src="/logo.svg" alt="Logo" width={202} height={72} />
     </Link>
 );

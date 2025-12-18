@@ -37,13 +37,13 @@ function HomePage() {
             {Array.from({ length: 10 }).map((_, index) => (
               <CarouselItem key={index} className="basis-full md:basis-1/3 lg:basis-1/4">
                 <Card className="overflow-hidden">
-                  <CardHeader className="relative aspect-4/5 overflow-hidden">
+                  <CardHeader className="relative aspect-4/5 overflow-hidden rounded-t-xl">
                     <Image
                       src="/products/product-1.png"
                       alt={`Product Image - ${index + 1}`}
                       quality={100}
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110 pt-0"
+                      className="object-cover transition-transform duration-500 hover:scale-110 pt-0 dark:brightness-90"
                     />
                   </CardHeader>
                   <CardContent className="flex flex-col gap-2">
