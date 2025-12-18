@@ -1,4 +1,5 @@
-import { CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Image from "next/image";
@@ -34,14 +35,25 @@ function HomePage() {
         >
           <CarouselContent>
             {Array.from({ length: 10 }).map((_, index) => (
-              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
-                <div className="p-1">
-                  <Card className="product-card bg-muted">
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-3xl font-semibold">{index + 1}</span>
-                    </CardContent>
-                  </Card>
-                </div>
+              <CarouselItem key={index} className="basis-full md:basis-1/3 lg:basis-1/4">
+                <Card className="overflow-hidden">
+                  <CardHeader className="relative aspect-4/5 overflow-hidden">
+                    <Image
+                      src="/products/product-1.png"
+                      alt={`Product Image - ${index + 1}`}
+                      quality={100}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-110 pt-0"
+                    />
+                  </CardHeader>
+                  <CardContent className="flex flex-col gap-2">
+                    <CardTitle>Product {index + 1}</CardTitle>
+                    <CardDescription>Product {index + 1} Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</CardDescription>
+                  </CardContent>
+                  <CardFooter className="flex justify-end px-2">
+                    <Button className="w-full" size="sm">View Product</Button>
+                  </CardFooter>
+                </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
