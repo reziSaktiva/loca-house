@@ -29,7 +29,7 @@ const NavDesktop = () => {
                     {/* Desktop Navigation Links - simplified from NavigationMenu */}
                     <div className="flex items-center gap-6">
                         <Logo />
-                        <Link href="/shop">
+                        {/* <Link href="/shop">
                             Shop
                         </Link>
                         <Link href="/collections">
@@ -40,6 +40,9 @@ const NavDesktop = () => {
                         </Link>
                         <Link href="/about">
                             About
+                        </Link> */}
+                        <Link href="/design-system">
+                            Design System
                         </Link>
                     </div>
 
